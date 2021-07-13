@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string.h>
+#include <stack>
+
+using namespace std;
+
+int main(){
+    int n{};
+    for(cin>>n;n>0;--n){
+        stack<int> pilha{};
+        int diamantes{0};
+        int i{};
+        string caracter{};
+        cin>>caracter;
+        for(i=0;i<=caracter.length();++i){
+            if(caracter[i]=='<')
+                pilha.push(caracter[i]);
+            else if(pilha.size()>0&&caracter[i]=='>'){
+                pilha.pop();
+                ++diamantes;
+            }
+        }
+        cout<<diamantes<<'\n';
+    }
+    return 0;
+}
